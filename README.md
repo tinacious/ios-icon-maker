@@ -1,4 +1,4 @@
-# Batch process iOS icons
+# Generate iOS device icons
 
 ## Dependencies
 
@@ -23,3 +23,7 @@ node index sample.png
 Icons will be generated in the `outputs/` directory.
 
 ![Screenshot](screenshot.png)
+
+Successful logging should output the following:
+
+![Screenshot of console output](screenshot-console.png)
