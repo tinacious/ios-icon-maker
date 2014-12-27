@@ -1,0 +1,7 @@
+{
+  "name": "ios-icon-maker",
+  "dependencies": {
+    "custom-logger": "^0.3.0",
+    "imagemagick": "^0.1.3"
+  }
+}
