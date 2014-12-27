@@ -2,6 +2,10 @@
 
 ## Dependencies
 
+Install ImageMagick. On Mac, this can be done using Homebrew:
+
+    brew install imagemagick
+
 Install Node.js dependencies:
 
     npm install
