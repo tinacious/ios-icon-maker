@@ -22,4 +22,6 @@ node index sample.png
 
 Icons will be generated in the `outputs/` directory.
 
-![Screenshot](screenshot.png)
+![Demo](demo.gif)
+
+![Output screenshot](screenshot.png)
