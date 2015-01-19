@@ -13,7 +13,8 @@ var sizes = {
     "directory": "outputs/",
     "prefix": "icon",
     "suffix": ".png",
-    "suffixRetina":"@2x.png"
+    "suffixRetina":"@2x.png",
+    "suffixRetinaPlus": "@3x.png"
   },
   "data": [
     { "size": 29, "customDefault": "-small" },
@@ -35,9 +36,10 @@ sizes.data.map(function (value, index) {
   var imageName = sizes.config.prefix;
   imageName += (typeof value.customDefault) !== 'undefined' ? value.customDefault : '-' + value.size;
 
-  // Image suffix and extension for retina and non-retina
+  // Image suffix and extension for retina, retina plus, and non-retina
   var suffix = sizes.config.suffix;
   var suffixRetina = sizes.config.suffixRetina;
+  var suffixRetinaPlus = sizes.config.suffixRetinaPlus;
 
   // ImageMagick options for non-retina
   var options = {
@@ -55,6 +57,13 @@ sizes.data.map(function (value, index) {
     width: (value.size)*2
   };
 
+  // ImageMagick options for retina plus
+  var optionsRetinaPlus = {
+    srcPath: sourceImage,
+    quality: 1,
+    dstPath: outDir + imageName + suffixRetinaPlus,
+    width: (value.size)*3
+  };
 
   // Process non-retina icons
   im.resize(options, function (err) {
@@ -66,5 +75,11 @@ sizes.data.map(function (value, index) {
   im.resize(optionsRetina, function (err) {
     if (err) { throw err; }
     log.info('Created icon ' + outDir + imageName + suffixRetina);
+  });
+
+  // Process retina plus icons
+  im.resize(optionsRetinaPlus, function (err) {
+    if (err) { throw err; }
+    log.info('Created icon ' + outDir + imageName + suffixRetinaPlus);
   });
 });
